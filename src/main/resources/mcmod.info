@@ -1,0 +1,17 @@
+[
+{
+  "modid": "randomrecipes",
+  "name": "Random Recipes",
+  "description": "Shuffles the output of every crafting recipe on a timer. Recipe shapes stay valid, only the products get swapped around.",
+  "version": "1.0.0",
+  "mcversion": "1.8.9",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Xiahh","DSH"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "parent": "",
+  "screenshotList": []
+}
+]
