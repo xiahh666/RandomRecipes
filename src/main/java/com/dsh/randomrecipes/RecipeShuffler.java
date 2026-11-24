@@ -124,6 +124,7 @@ public final class RecipeShuffler {
             RandomRecipes.logger.info("Shuffled {} crafting results for interval #{}", Integer.valueOf(size),
                     Integer.valueOf(epoch));
         }
+        refreshJei();
         return true;
     }
 
@@ -140,6 +141,7 @@ public final class RecipeShuffler {
         if (RandomRecipes.logger != null) {
             RandomRecipes.logger.info("Manually shuffled {} crafting results", Integer.valueOf(size));
         }
+        refreshJei();
         return true;
     }
 
@@ -152,6 +154,7 @@ public final class RecipeShuffler {
         if (RandomRecipes.logger != null) {
             RandomRecipes.logger.info("Restored all {} recipes to their original products", Integer.valueOf(WRAPPERS.size()));
         }
+        refreshJei();
     }
 
     public static synchronized void resume() {
@@ -176,6 +179,14 @@ public final class RecipeShuffler {
     }
 
     // ------------------------------------------------------------------ internals
+
+    /** Lets the client side re-index JEI, which caches the recipe outputs it saw at load time. */
+    private static void refreshJei() {
+        CommonProxy proxy = RandomRecipes.proxy;
+        if (proxy != null) {
+            proxy.refreshJei();
+        }
+    }
 
     private static void assign(int[] permutation) {
         for (int i = 0; i < WRAPPERS.size(); i++) {

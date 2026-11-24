@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Random Recipes — periodically scrambles the output of every crafting recipe.
+ * Random Recipes - periodically scrambles the output of every crafting recipe.
  *
  * <p>The set of recipe shapes and the set of products are both unchanged: only the
  * assignment between them is permuted. No recipe can therefore ever produce an item

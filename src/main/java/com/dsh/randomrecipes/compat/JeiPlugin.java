@@ -6,6 +6,7 @@ import com.dsh.randomrecipes.ModConfig;
 import com.dsh.randomrecipes.RandomRecipes;
 
 import mezz.jei.api.BlankModPlugin;
+import mezz.jei.api.IJeiRuntime;
 import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;
 
@@ -27,5 +28,11 @@ public class JeiPlugin extends BlankModPlugin {
                     "Registered JEI handler for shuffled recipes (showing {} products)",
                     ModConfig.jeiShowShuffled ? "scrambled" : "original");
         }
+    }
+
+    /** Kept so the output index can be rebuilt after every shuffle. */
+    @Override
+    public void onRuntimeAvailable(@Nonnull IJeiRuntime jeiRuntime) {
+        JeiSync.setRuntime(jeiRuntime);
     }
 }

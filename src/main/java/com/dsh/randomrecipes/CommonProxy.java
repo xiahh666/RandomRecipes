@@ -24,6 +24,13 @@ public class CommonProxy {
         FMLCommonHandler.instance().bus().register(this);
     }
 
+    /**
+     * Hook for the client side to re-index JEI after the table changed. The dedicated server
+     * has no client recipe index, so this is deliberately empty here.
+     */
+    public void refreshJei() {
+    }
+
     /** Late joiners need the current interval index, otherwise their client copy stays original. */
     @SubscribeEvent
     public void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
